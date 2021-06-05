@@ -1,0 +1,27 @@
+<section class="home-grid-section mt-5">
+  <div class="home-grid-section-img-left-top relative">
+    <img src="assets/img/home_img_grid_left_top.png" alt="shoe image" />
+    <div class="absolute bottom-5 left-5 font-bold">
+      <p>OTHERS</p>
+      <app-home-button
+        [brand]="'other'"
+        [typeOfShoes]="'all'"
+      ></app-home-button>
+    </div>
+  </div>
+  <div class="home-grid-section-img-left-bottom relative">
+    <img src="assets/img/home_img_grid_left_bottom.png" alt="shoe image" />
+    <div class="absolute bottom-5 left-5 font-bold">
+      <p>FILS</p>
+      <app-home-button [brand]="'fils'" [typeOfShoes]="'all'"></app-home-button>
+    </div>
+  </div>
+  <div class="home-grid-section-img-right relative">
+    <img src="assets/img/home_img_grid_right.png" alt="shoe image" />
+    <div class="absolute bottom-5 left-5 font-bold">
+      <p>Our new comers</p>
+      <p class="text-xl md:text-3xl font-black">NIKE</p>
+      <app-home-button [brand]="'nike'" [typeOfShoes]="'all'"></app-home-button>
+    </div>
+  </div>
+</section>

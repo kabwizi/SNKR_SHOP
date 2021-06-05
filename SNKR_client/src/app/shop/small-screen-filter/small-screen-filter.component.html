@@ -1,0 +1,15 @@
+<aside
+  [class.show-bottom-sheet]="showFilterBottomSheet"
+  class="bottom-sheet-container"
+>
+  <div (click)="hideFilterBottomSheetFn()" class="flex justify-end">
+    <img
+      class="cursor-pointer"
+      src="assets/cancel_black.svg"
+      width="13"
+      height="13"
+      alt="Cancel icon"
+    />
+  </div>
+  <app-filter></app-filter>
+</aside>

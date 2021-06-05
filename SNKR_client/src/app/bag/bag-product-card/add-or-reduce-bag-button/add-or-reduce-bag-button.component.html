@@ -1,0 +1,5 @@
+<div *ngIf="product" class="flex gap-4 items-center select-none">
+  <div class="bag-button" (click)="addQuantityFn()">+</div>
+  <p class="text-xs">{{ product.quantity }}</p>
+  <div class="bag-button" (click)="reduceQuantityFn()">-</div>
+</div>

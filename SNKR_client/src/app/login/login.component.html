@@ -1,0 +1,26 @@
+<div
+  [ngClass]="(loginState$ | async)?.showLoginPopUp ? 'show-login-popup' : ''"
+  class="login-overlay"
+>
+  <div class="login-wrapper">
+    <div (click)="hideLoginPopUpFn()" class="flex justify-end">
+      <img
+        class="cursor-pointer"
+        src="assets/cancel_black.svg"
+        width="13"
+        height="13"
+        alt="close icon"
+      />
+    </div>
+    <h3 class="font-black text-6xl mb-4">SNKR</h3>
+    <div *ngIf="isNewUser; then signIn; else logIn"></div>
+    <ng-template #signIn>
+      <app-sign-in-option></app-sign-in-option
+    ></ng-template>
+    <ng-template #logIn> <app-log-in-option></app-log-in-option></ng-template>
+    <p (click)="toggleLoginOrSigninFn()" class="toggle-login-signin">
+      Le lorem ipsum est, en imprimerie,&nbsp;
+      <span class="border-b text-black border-black"> login </span>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div
+  infiniteScroll
+  [infiniteScrollDistance]="0.8"
+  [infiniteScrollThrottle]="500"
+  (scrolled)="onScrollFn()"
+  class="relative z-10 mt-20 flex px-5 windowsSize"
+>
+  <app-filter
+    class="hidden lg:block"
+    (priceRangeEmitter)="updatePriceFn($event)"
+    (selectedColorsEmitter)="updateColorsListSelectedFn($event)"
+    (selectedSizesEmitter)="updateSizesSelectedFn($event)"
+  ></app-filter>
+  <div class="w-full">
+    <div class="flex items-center py-5">
+      <input
+        #searchProduct
+        class="search-input"
+        type="text"
+        placeholder="SEARCH..."
+      />
+      <div
+        (click)="toggleShowFilterBottomSheetFn()"
+        class="filter-bottom-sheet-button"
+      >
+        <p class="font-black text-lg">Filters</p>
+        <img src="assets/filter.svg" alt="filter icon" />
+      </div>
+    </div>
+    <div class="w-full">
+      <p class="pb-2 text-2xs">SHOES / ALL</p>
+      <div
+        *ngIf="
+          (
+            productsList
+            | priceFilter: priceRange
+            | colorFilterPipe: colorsListSelected
+            | sizeFilterPipe: sizesListSelected
+          )?.length;
+          then productCardList;
+          else noProductFound
+        "
+      ></div>
+      <ng-template #productCardList>
+        <main
+          [@openClose]="false ? 'open' : 'closed'"
+          class="product-grid-wrapper"
+        >
+          <app-product-card
+            *ngFor="
+              let product of productsList
+                | priceFilter: priceRange
+                | colorFilterPipe: colorsListSelected
+                | sizeFilterPipe: sizesListSelected
+            "
+            [product]="product"
+          ></app-product-card></main
+      ></ng-template>
+      <ng-template #noProductFound>
+        <app-empty-product></app-empty-product>
+      </ng-template>
+    </div>
+    <div class="mt-10 flex justify-center"></div>
+  </div>
+  <app-small-screen-filter
+    [(showFilterBottomSheet)]="showFilterBottomSheet"
+  ></app-small-screen-filter>
+</div>

@@ -1,0 +1,21 @@
+<div
+  *ngIf="product"
+  class="flex items-center gap-4 cursor-pointer"
+  (click)="showProductDetailFn()"
+>
+  <div class="relative w-24 h-24 shadow-md">
+    <img src="{{ product.src[0] }}" />
+  </div>
+  <div class="flex-1 flex flex-col justify-between">
+    <div>
+      <p class="font-bold">{{ product.title | titlecase }}</p>
+      <p>
+        Quantity: <span>{{ product.quantity }}</span>
+      </p>
+      <p>
+        Size: <span>{{ product.size }}</span>
+      </p>
+      <p class="font-bold">{{ product.price }} CAD</p>
+    </div>
+  </div>
+</div>

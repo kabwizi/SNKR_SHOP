@@ -1,0 +1,55 @@
+<div
+  (click)="updateCurrentProductFn()"
+  *ngIf="product"
+  class="product-container"
+>
+  <div
+    (click)="addProductToBagFn($event)"
+    class="flex justify-end w-full absolute add-to-card-wrapper"
+  >
+    <div class="p-1 flex relative z-20">
+      <div class="add-to-card-icon">
+        <img
+          src="assets/shopping_caddy.svg"
+          width="12"
+          height="12"
+          alt="shopping caddy"
+        />
+      </div>
+      <p class="add-to-card-product-card-button">Add to card</p>
+    </div>
+  </div>
+  <div>
+    <div class="product-wrapper">
+      <img
+        [src]="product.src[productCurrentDisplayedImageIndex]"
+        class="h-full w-full object-cover"
+        alt="product image"
+      />
+      <app-discount-banner [discount]="product.discount"></app-discount-banner>
+    </div>
+    <div class="product-other-image-wrapper">
+      <div
+        [imageIndex]="i"
+        (imageIndexEmitter)="updateCurrentProductImageIndexFn($event)"
+        class="shadow-md product-other-image"
+        *ngFor="let miniProductImage of product.src; let i = index"
+      >
+        <img
+          [src]="miniProductImage"
+          width="50"
+          height="50"
+          alt="product image small version"
+        />
+      </div>
+    </div>
+    <div class="flex justify-between font-bold mt-1">
+      <p class="text-2xs">{{ product.brand.toUpperCase() }}</p>
+      <p class="text-2xs">{{ product.price }} CAD</p>
+    </div>
+    <div class="flex justify-between text-sm text-gray-500">
+      <p class="text-3xs">{{ product.title | titlecase }}</p>
+      <p class="text-3xs">({{ product.stock }}) in stock</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div *ngIf="product" (click)="showProductDetailsFn()" class="product-container">
+  <div class="product-wrapper">
+    <app-discount-banner [discount]="product.discount"></app-discount-banner>
+    <img
+      [src]="product.src[productCurrentDisplayedImageIndex]"
+      alt="product image"
+    />
+  </div>
+  <div class="flex gap-2 mt-3">
+    <div
+      [imageIndex]="i"
+      (imageIndexEmitter)="updateCurrentProductImageIndexFn($event)"
+      class="shadow-md"
+      *ngFor="let miniProductImage of product.src; let i = index"
+    >
+      <img
+        [src]="miniProductImage"
+        width="55"
+        height="55"
+        alt="product image"
+      />
+    </div>
+  </div>
+  <div class="flex justify-between font-bold mt-1">
+    <p>{{ product.brand.toUpperCase() }}</p>
+    <p>{{ product.price }} CAD</p>
+  </div>
+  <div class="flex justify-between text-sm text-gray-500">
+    <p class="text-3xs">{{ product.title | titlecase }}</p>
+    <p class="text-3xs">({{ product.stock }}) in stock</p>
+  </div>
+</div>

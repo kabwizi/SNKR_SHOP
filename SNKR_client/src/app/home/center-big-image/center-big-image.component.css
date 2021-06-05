@@ -1,0 +1,17 @@
+.center-big-image-container {
+  position: relative;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .center-big-image-container {
+    height: 500px;
+    width: 100%;
+  }
+  .center-big-image-container img {
+    background-size: cover;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}

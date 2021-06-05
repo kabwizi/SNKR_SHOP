@@ -1,0 +1,56 @@
+<ul class="mega-menu">
+  <li>
+    <p class="mega-menu-title">RUNNING</p>
+    <div class="mega-menu-img-wrapper">
+      <img
+        class="mega-menu-img"
+        src="assets/img/running_collection_menu.png"
+        alt="running collection"
+      />
+    </div>
+    <div class="mega-menu-item-wrapper">
+      <p (click)="goToShopPageFn('nike', 'running')" class="mega-menu-item">
+        Nike
+      </p>
+      <p (click)="goToShopPageFn('adidas', 'running')" class="mega-menu-item">
+        Adidas
+      </p>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p class="mega-menu-title">WALKING</p>
+      <div class="mega-menu-img-wrapper">
+        <img
+          class="mega-menu-img"
+          src="assets/img/walking_collection_menu.png"
+          alt="walking collection"
+        />
+      </div>
+      <div class="mega-menu-item-wrapper">
+        <p (click)="goToShopPageFn('nike', 'walking')" class="mega-menu-item">
+          Nike
+        </p>
+        <p (click)="goToShopPageFn('adidas', 'walking')" class="mega-menu-item">
+          Adidas
+        </p>
+      </div>
+    </div>
+  </li>
+  <li>
+    <p class="mega-menu-title">ALL</p>
+    <div class="mega-menu-item-wrapper">
+      <p (click)="goToShopPageFn('nike', 'all')" class="mega-menu-item">Nike</p>
+      <p (click)="goToShopPageFn('adidas', 'all')" class="mega-menu-item">
+        Adidas
+      </p>
+      <p (click)="goToShopPageFn('all star', 'all')" class="mega-menu-item">
+        All star
+      </p>
+      <p (click)="goToShopPageFn('fils', 'all')" class="mega-menu-item">Fils</p>
+      <p (click)="goToShopPageFn('other', 'all')" class="mega-menu-item">
+        Others
+      </p>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,23 @@
+.product-slider-wrapper {
+  @apply flex gap-5 overflow-x-auto py-4;
+  height: 560px;
+}
+
+.circular-button {
+  @apply bg-white cursor-pointer shadow-xl w-10 h-10 md:w-14 md:h-14  flex justify-center items-center absolute z-20 rounded-full;
+  transition: all 0.5s;
+}
+
+.product-slider-container {
+  @apply relative flex flex-col justify-center z-10 w-full;
+}
+.circular-button:hover {
+  transform: scale(1.15);
+  transition: all 0.5s;
+}
+
+@media (max-width: 640px) {
+  .product-slider-wrapper {
+    height: 460px;
+  }
+}

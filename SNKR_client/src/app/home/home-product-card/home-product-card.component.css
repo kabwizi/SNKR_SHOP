@@ -1,0 +1,18 @@
+.product-wrapper {
+  @apply relative flex justify-end items-start mb-3 shadow-lg;
+  width: 450px;
+  height: 400px;
+}
+.product-wrapper img {
+  @apply h-full w-full object-cover bg-cover;
+}
+.product-container {
+  @apply cursor-pointer;
+}
+
+@media (max-width: 640px) {
+  .product-wrapper {
+    width: 350px;
+    height: 300px;
+  }
+}

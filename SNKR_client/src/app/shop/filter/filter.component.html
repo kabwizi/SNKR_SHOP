@@ -1,0 +1,137 @@
+<aside
+  #filterContainer
+  class="filter-container"
+  infiniteScroll
+  [infiniteScrollUpDistance]="9.8"
+  [infiniteScrollThrottle]="50"
+  (scrolledUp)="onScrollUpFn()"
+>
+  <p class="font-extrabold text-4xl lg:text-7xl pb-4">Filter</p>
+  <div class="filter-product-section-wrapper">
+    <div
+      class="space-y-2 flex-1"
+      *ngIf="route?.state?.queryParams?.brand as currentBrand"
+    >
+      <p
+        class="filter-option"
+        (click)="updateBrandFn('all')"
+        [class.font-bold]="currentBrand == 'all'"
+      >
+        All
+      </p>
+      <p
+        class="filter-option"
+        (click)="updateBrandFn('nike')"
+        [class.font-bold]="currentBrand == 'nike'"
+      >
+        Nike
+      </p>
+      <p
+        class="filter-option"
+        (click)="updateBrandFn('adidas')"
+        [class.font-bold]="currentBrand == 'adidas'"
+      >
+        Adidas
+      </p>
+      <p
+        class="filter-option"
+        (click)="updateBrandFn('vans')"
+        [class.font-bold]="currentBrand == 'vans'"
+      >
+        Vans
+      </p>
+      <p
+        class="filter-option"
+        (click)="updateBrandFn('fils')"
+        [class.font-bold]="currentBrand == 'fils'"
+      >
+        Fils
+      </p>
+      <p
+        class="filter-option"
+        (click)="updateBrandFn('other')"
+        [class.font-bold]="currentBrand == 'other'"
+      >
+        Others
+      </p>
+    </div>
+    <div
+      class="mt-2 flex-1"
+      *ngIf="route?.state?.queryParams?.typeOfShoes as currentTypeOfShoe"
+    >
+      <p class="font-extrabold text-xl">Type of shoes</p>
+      <div class="flex flex-col gap-2 mt-2">
+        <p
+          (click)="updateTypeOfShoeFn('all')"
+          class="filter-option"
+          [class.font-bold]="currentTypeOfShoe == 'all'"
+        >
+          All
+        </p>
+        <p
+          (click)="updateTypeOfShoeFn('running')"
+          class="filter-option"
+          [class.font-bold]="currentTypeOfShoe == 'running'"
+        >
+          Running
+        </p>
+        <p
+          (click)="updateTypeOfShoeFn('walking')"
+          class="filter-option"
+          [class.font-bold]="currentTypeOfShoe == 'walking'"
+        >
+          Walking
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="filter-product-section-wrapper">
+    <div class="mt-2 flex-1">
+      <p class="font-extrabold text-xl">Size</p>
+      <div class="grid grid-cols-5 gap-2 mt-2">
+        <div
+          *ngFor="let size of sizesList$ | async"
+          class="size-box {{
+            selectedSizes.includes(size, 0) ? 'bg-black text-white' : ''
+          }}"
+          (click)="toggleSelectedsizeFn(size)"
+        >
+          {{ size }}
+        </div>
+      </div>
+    </div>
+    <div class="mt-2 flex-1">
+      <p class="font-extrabold text-xl">Color</p>
+      <div class="grid grid-cols-5 gap-y-1 mt-2">
+        <div
+          *ngFor="let color of colorsList$ | async"
+          [ngStyle]="{ backgroundColor: color }"
+          class="w-8 border h-8 rounded-full cursor-pointer {{
+            selectedColors.includes(color, 0)
+              ? 'border-4 border-yellow-500'
+              : ''
+          }}"
+          (click)="toggleSelectedColorFn(color)"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-2 flex-1">
+    <p class="font-extrabold text-xl">Price</p>
+    <div>
+      <input
+        class="rang-slider w-full"
+        type="range"
+        step="50"
+        min="0"
+        max="500"
+        (ngModelChange)="sendPriceValueToParentFn($event)"
+        [(ngModel)]="priceRange"
+      />
+      <div class="flex justify-between mt-1 text-xs">
+        <p class="text-3xs"></p>
+        <p class="text-3xs">{{ priceRange }} CAD</p>
+      </div>
+    </div>
+  </div>
+</aside>

@@ -1,0 +1,46 @@
+.product-container {
+  @apply relative  cursor-pointer;
+  height: 440px;
+}
+
+.add-to-card-icon {
+  @apply bg-black h-8 w-8 z-10 flex justify-center items-center;
+}
+
+.add-to-card-wrapper:hover .add-to-card-product-card-button,
+.add-to-card-wrapper:hover .add-to-card-icon {
+  @apply bg-gray-600;
+}
+
+.product-wrapper {
+  @apply relative h-80 flex justify-end items-start mb-3 shadow-lg;
+}
+
+.product-other-image-wrapper {
+  @apply flex gap-3;
+}
+
+.product-other-image {
+  height: 0px;
+  transition-property: height;
+  transition-duration: 0.5s;
+  overflow: hidden;
+}
+
+.product-container:hover .product-other-image {
+  height: 50px;
+  transition-property: height;
+  transition-duration: 0.5s;
+}
+
+.add-to-card-product-card-button {
+  @apply flex bg-black h-8 z-10 justify-center items-center text-xs text-white right-9 whitespace-nowrap overflow-hidden w-0;
+  transition-property: width;
+  transition-duration: 0.3s;
+}
+
+.product-container:hover .add-to-card-product-card-button {
+  width: 100px;
+  transition-property: width;
+  transition-duration: 0.3s;
+}

@@ -1,0 +1,14 @@
+<section class="product-slider-container">
+  <div #scrollDIv class="product-slider-wrapper">
+    <app-home-product-card
+      *ngFor="let product of productsList$ | async | shufflePipe"
+      [product]="product"
+    ></app-home-product-card>
+  </div>
+  <div class="circular-button left-2" (click)="slideToTheLeftFn(scrollDIv)">
+    <img src="assets/arrow_left_black.svg" width="8" height="8" />
+  </div>
+  <div class="circular-button right-2" (click)="slideToTheRightFn(scrollDIv)">
+    <img src="assets/arrow_right_black.svg" width="8" height="8" />
+  </div>
+</section>

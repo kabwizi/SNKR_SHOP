@@ -1,0 +1,80 @@
+<nav show-hide-navigation-directive class="text-sm">
+  <section class="bg-black">
+    <div class="navigation-banner windowsSize">
+      <div class="hidden md:flex gap-2 navigation-banner-items">
+        <img
+          src="assets/percent_white.svg"
+          width="17"
+          height="17"
+          alt="percent icon"
+        />
+        <p>LAST CHANCE SALE - 70% OFF</p>
+      </div>
+      <div class="flex gap-2 navigation-banner-items">
+        <img
+          src="assets/shipping_truck_white.svg"
+          width="20"
+          height="20"
+          alt="shipping truck"
+        />
+        <p class="text-xs md:text-base">FREE DELIVERY ON ORDERS OVER $ 50</p>
+      </div>
+      <div class="hidden md:flex gap-4">
+        <div class="navigation-banner-items">Help</div>
+        |
+        <div class="navigation-banner-items">Join us</div>
+      </div>
+    </div>
+  </section>
+  <section class="windowsSize">
+    <div class="navigation-wrapper">
+      <a routerLink="" class="navBar-brand"
+        ><img src="assets/brand.svg" alt="logo"
+      /></a>
+      <div class="p-5 pl-10 navBar-items top-5 right-0 z-30">
+        <ul class="flex items-center">
+          <li class="block md:hidden">
+            <img
+              (click)="toggleShowOrHideSmallMenuFn()"
+              src="assets/menu.svg"
+              width="20"
+              alt="menu icon"
+            />
+          </li>
+          <li class="hidden md:block mega-menu-wrapper relative">
+            <p (click)="goToShopPageFn()">SHOP</p>
+            <app-shop-mega-menu></app-shop-mega-menu>
+          </li>
+          <li routerLink="checkout/personalInformation" class="hidden md:block">
+            CHECKOUT
+          </li>
+          <li>
+            <img
+              (click)="showLoginPopUpFn()"
+              class="navBar-item-img"
+              src="assets/user_black.svg"
+              width="15"
+              height="15"
+              alt="user icon"
+            />
+          </li>
+          <li (click)="showBagFn()" class="relative">
+            <img
+              class="navBar-item-img"
+              src="assets/bag_black.svg"
+              width="14"
+              height="14"
+              alt="bag icon"
+            />
+            <div
+              *ngIf="(bag$ | async)?.length !== 0"
+              class="bag-product-length"
+            >
+              {{ (bag$ | async)?.length }}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</nav>

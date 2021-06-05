@@ -1,0 +1,9 @@
+.search-input {
+  @apply text-4xl md:text-7xl font-black outline-none w-full;
+}
+.filter-bottom-sheet-button {
+  @apply flex lg:hidden gap-2 items-center justify-center border px-4 py-1 cursor-pointer;
+}
+.product-grid-wrapper {
+  @apply grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 w-full;
+}

@@ -1,0 +1,7 @@
+.checkout-container {
+  @apply relative z-20 h-full mt-16 mb-60 px-5;
+}
+
+.checkout-wrapper {
+  @apply flex flex-col lg:flex-row  justify-center  items-center  lg:items-start gap-16 h-full mt-16;
+}

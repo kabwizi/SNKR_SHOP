@@ -1,0 +1,39 @@
+<div>
+  <p class="font-bold text-lg">PAYMENT INFORMTION</p>
+  <div class="checkout-group-wrapper">
+    <p class="font-semibold text-xs">DO YOU HAVE A PROMO CODE?</p>
+    <input class="base-input" type="text" placeholder="Promo Code" />
+  </div>
+  <div class="checkout-group-wrapper">
+    <div class="flex gap-4 items-center">
+      <input type="radio" name="payment" value="CREDIT" />
+      <p class="font-semibold text-xs">CREDIT CARD</p>
+    </div>
+    <div class="flex flex-col gap-4">
+      <input class="base-input" type="text" placeholder="Card number" />
+      <input class="base-input" type="text" placeholder="Name on card" />
+      <div class="flex w-full space-x-4">
+        <input class="base-input" type="text" placeholder="MM/YY" />
+        <input class="base-input" type="text" placeholder="CVV" />
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col gap-4 border px-4 pb-4 pt-2 mt-4">
+    <div class="flex gap-4 items-center">
+      <input type="radio" name="payment" value="PAYPAL" />
+      <p class="font-semibold text-xs">PAYPAL</p>
+    </div>
+    <div>
+      <p class="text-xs text-gray-500">
+        You will be redirected to PayPal, where you can pay and complete your
+        order.
+      </p>
+    </div>
+  </div>
+  <div class="flex gap-4 mt-4">
+    <div routerLink="/checkout/personalInformation" class="big-button w-20">
+      Back
+    </div>
+    <div class="big-button flex-1">PAY</div>
+  </div>
+</div>

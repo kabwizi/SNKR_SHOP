@@ -1,0 +1,26 @@
+<div *ngIf="loginForm" [formGroup]="loginForm" class="flex flex-col gap-3">
+  <input
+    class="base-input"
+    type="text"
+    placeholder="E-mail"
+    formControlerName="email"
+  />
+  <input
+    class="base-input"
+    type="password"
+    placeholder="password"
+    formControlerName="password"
+  />
+  <p class="text-xs text-gray-500">
+    Le lorem ipsum est, en imprimerie, une suite de mots sans &nbsp;
+    <span class="border-b text-black border-black">
+      signification utilisée à
+    </span>
+    titre provisoire pour calibrer une mise en page, &nbsp;
+    <span class="border-b text-black border-black">
+      le texte définitif venant remplacer
+    </span>
+    le faux-texte dès.
+  </p>
+  <div class="medium-button">LOGIN</div>
+</div>

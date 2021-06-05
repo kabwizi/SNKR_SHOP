@@ -1,0 +1,15 @@
+<div class="flex gap-4 items-center select-none">
+  <div
+    class="add-or-reduce-button w-8 h-8"
+    (click)="addOrReduceQuantityFn('REDUCE')"
+  >
+    -
+  </div>
+  <p>{{ quantity }}</p>
+  <div
+    class="add-or-reduce-button w-8 h-8"
+    (click)="addOrReduceQuantityFn('ADD')"
+  >
+    +
+  </div>
+</div>

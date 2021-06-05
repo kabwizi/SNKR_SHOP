@@ -1,0 +1,52 @@
+<aside
+  [ngClass]="bag?.showBag ? 'show-rigth-side-menu' : ''"
+  class="rigth-side-menu-container"
+>
+  <div (click)="hideBagFn()" class="flex justify-between">
+    <img
+      class="cursor-pointer"
+      src="assets/cancel_black.svg"
+      width="13"
+      height="13"
+      alt="close icon"
+    />
+  </div>
+  <p class="font-extrabold text-xl mt-6 mb-5">My card</p>
+
+  <div
+    *ngIf="bag?.bagProducts?.length; then haveProduct; else doNotHaveProduct"
+  ></div>
+  <ng-template #haveProduct>
+    <div class="flex-1">
+      <div class="flex flex-col gap-4">
+        <app-bag-product-card
+          *ngFor="let product of bag?.bagProducts"
+          [product]="product"
+        ></app-bag-product-card>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #doNotHaveProduct>
+    <div class="no-product mt-auto mb-auto">
+      <div>
+        <img
+          class="cursor-pointer opacity-5"
+          src="assets/empty_shoes.svg"
+          width="300"
+          height="300"
+        />
+      </div>
+      <p>Add your first SNKR</p>
+    </div>
+  </ng-template>
+  <div>
+    <div class="flex justify-between font-bold pt-10">
+      <p>Total</p>
+      <p>{{ bag?.bagProducts | productArrayTotalPipe }} CAD</p>
+    </div>
+    <div class="bag-button" (click)="goToCheckoutAndCloseTheBagFn()">
+      <p>PROCED TO CHECH OUT</p>
+      <img src="assets/arrow_rigth.svg" width="7" height="7" />
+    </div>
+  </div>
+</aside>

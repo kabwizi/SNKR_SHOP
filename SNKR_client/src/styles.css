@@ -1,0 +1,81 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.windowsSize {
+  max-width: 1650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*=========scroll bar=========*/
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+Track ::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+/* Handle*/
+::-webkit-scrollbar-thumb {
+  background: rgb(51, 51, 51);
+}
+
+/* Handle on hover*/
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 0, 0);
+}
+
+.fireFoxThinScrollbarY {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: black white;
+}
+
+.fireFoxThinNoScrollbar {
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.big-button {
+  @apply bg-black cursor-pointer shadow text-white text-center py-2 font-semibold hover:bg-gray-700;
+}
+.medium-button {
+  @apply bg-black shadow text-white text-xs text-center py-2 font-semibold hover:bg-gray-700;
+}
+.base-input {
+  @apply border text-xs px-4 py-2 w-full;
+}
+.add-or-reduce-button {
+  @apply bg-white cursor-pointer flex justify-center items-center shadow text-xs;
+}
+.checkout-group-wrapper {
+  @apply flex flex-col gap-4 border px-4 pb-4 pt-2 mt-4;
+}
+
+/*===========rigth-side-menu============*/
+.rigth-side-menu-container {
+  @apply bg-white z-40 fixed flex flex-col top-0 shadow-2xl p-5 overflow-y-scroll h-full right-0;
+  width: 400px;
+  height: 100%;
+  transform: scaleX(0);
+  transition: all 0.5s;
+  opacity: 0;
+  transform-origin: right;
+}
+
+.show-rigth-side-menu {
+  opacity: 1;
+  transform: scaleX(1);
+  transition: all 0.5s;
+  transform-origin: right;
+}
+
+@media (max-width: 400px) {
+  .rigth-side-menu-container {
+    width: 100%;
+  }
+}

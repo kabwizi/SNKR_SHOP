@@ -1,0 +1,113 @@
+<form
+  (ngSubmit)="submitFormFn()"
+  *ngIf="signInForm"
+  [formGroup]="signInForm"
+  class="flex flex-col gap-3"
+>
+  <div>
+    <input
+      formControlName="firstName"
+      class="base-input"
+      type="text"
+      placeholder="First name"
+      [class.border-red-400]="
+        signInForm.get('firstName')?.invalid &&
+        signInForm.get('firstName')?.touched
+      "
+    />
+    <p
+      *ngIf="
+        signInForm.get('firstName')?.invalid &&
+        signInForm.get('firstName')?.touched
+      "
+      class="text-xs text-red-500 text-left"
+    >
+      First name required
+    </p>
+  </div>
+  <div>
+    <input
+      formControlName="lastName"
+      class="base-input"
+      type="text"
+      placeholder="Last name"
+      [class.border-red-400]="
+        signInForm.get('lastName')?.invalid &&
+        signInForm.get('lastName')?.touched
+      "
+    />
+    <p
+      *ngIf="
+        signInForm.get('lastName')?.invalid &&
+        signInForm.get('lastName')?.touched
+      "
+      class="text-xs text-red-500 text-left"
+    >
+      Last name required
+    </p>
+  </div>
+  <div>
+    <input
+      formControlName="email"
+      class="base-input"
+      type="text"
+      placeholder="E-mail"
+      [class.border-red-400]="
+        (signInForm.get('email')?.invalid &&
+          signInForm.get('email')?.touched) ||
+        signInForm.get('email')?.errors?.email
+      "
+    />
+    <p
+      *ngIf="
+        (signInForm.get('email')?.invalid &&
+          signInForm.get('email')?.touched) ||
+        signInForm.get('email')?.errors?.email
+      "
+      class="text-xs text-red-500 text-left"
+    >
+      E-mail required
+    </p>
+  </div>
+  <div>
+    <input
+      formControlName="password"
+      class="base-input"
+      type="password"
+      placeholder="password"
+      [class.border-red-400]="
+        signInForm.get('password')?.invalid &&
+        signInForm.get('password')?.touched &&
+        !signInForm.get('password')?.errors?.minLength
+      "
+    />
+    <p
+      *ngIf="
+        signInForm.get('password')?.invalid &&
+        signInForm.get('password')?.touched &&
+        !signInForm.get('password')?.errors?.minLength
+      "
+      class="text-xs text-red-500 text-left"
+    >
+      Password required
+    </p>
+  </div>
+  <div class="flex justify-start gap-2 items-center">
+    <input type="checkbox" />
+    <p class="text-xs text-gray-500">
+      Le lorem ipsum est, en imprimerie, une suite de mots.
+    </p>
+  </div>
+  <p class="text-xs text-gray-500">
+    Le lorem ipsum est, en imprimerie, une suite de mots sans &nbsp;
+    <span class="border-b text-black border-black">
+      signification utilisée à
+    </span>
+    titre provisoire pour calibrer une mise en page, &nbsp;
+    <span class="border-b text-black border-black">
+      le texte définitif venant remplacer
+    </span>
+    le faux-texte dès.
+  </p>
+  <button type="submit" class="medium-button">SIGN IN</button>
+</form>

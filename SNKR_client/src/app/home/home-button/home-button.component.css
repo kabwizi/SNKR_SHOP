@@ -1,0 +1,16 @@
+.home-button {
+  @apply cursor-pointer mt-1 w-28 md:w-40 text-center bg-white py-2 md:py-3 font-bold relative;
+}
+
+.home-button::before {
+  @apply bg-black absolute text-xs md:text-base top-0 left-0 w-0 h-full flex justify-center items-center overflow-hidden;
+  transition: all 0.5s;
+  white-space: nowrap;
+  content: attr(title);
+}
+
+.home-button:hover::before {
+  transition: all 0.5s;
+  width: 100%;
+  color: white;
+}

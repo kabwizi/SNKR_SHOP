@@ -1,0 +1,9 @@
+.home-image-row-item {
+  position: relative;
+  width: 100%;
+}
+.home-image-row-item img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}

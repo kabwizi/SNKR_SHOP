@@ -1,0 +1,18 @@
+<div
+  [class.show-rigth-side-menu]="showSmallMenu.showSmallMenu"
+  class="rigth-side-menu-container cursor-default"
+>
+  <div (click)="hideMenuFn()">
+    <img
+      class="cursor-pointer"
+      src="assets/cancel_black.svg"
+      width="13"
+      height="13"
+      alt="close icon"
+    />
+  </div>
+  <p class="font-extrabold text-xl mt-6 mb-5">Shop</p>
+  <app-shop-mega-menu
+    (showOrHideSmallMenuChange)="hideMenuFn()"
+  ></app-shop-mega-menu>
+</div>

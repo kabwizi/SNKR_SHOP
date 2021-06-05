@@ -1,0 +1,14 @@
+.bottom-sheet-container {
+  @apply bg-white top-40 left-0 right-0 bottom-0 lg:bottom-auto overflow-scroll z-40 fixed flex flex-col shadow-2xl p-5;
+  transform: scaleY(0);
+  transition: all 0.5s;
+  opacity: 0;
+  transform-origin: bottom;
+}
+
+.show-bottom-sheet {
+  opacity: 1;
+  transform: scaleY(1);
+  transition: all 0.5s;
+  transform-origin: bottom;
+}

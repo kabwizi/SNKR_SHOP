@@ -1,0 +1,82 @@
+nav {
+  @apply relative  z-30;
+  transition: all 0.5s;
+}
+
+.navigation-banner {
+  @apply flex justify-center md:justify-between text-gray-100  px-5 py-1 text-sm font-semibold;
+}
+
+.navigation-banner-items {
+  @apply hover:text-white cursor-pointer;
+}
+
+.navigation-wrapper {
+  @apply px-5 flex justify-between items-center md:items-start mt-2;
+}
+
+.navBar-brand {
+  @apply w-96;
+}
+
+.navBar-items {
+  @apply flex justify-center items-center gap-8 font-semibold;
+}
+
+ul {
+  @apply flex gap-7;
+}
+
+li {
+  @apply cursor-pointer;
+}
+
+.bag-product-length {
+  @apply bg-black w-4 h-4 rounded-full flex justify-center items-center absolute -top-3 -right-3 text-xs font-bold text-white;
+}
+
+/*====================MENU====================*/
+.bag-number-of-item {
+  @apply bg-black rounded-full flex items-center justify-center w-4 h-4 absolute -top-3 -right-3;
+}
+
+.bag-number-of-item p {
+  @apply text-white text-xs;
+}
+
+.show-nav {
+  transform: translateY(0px);
+}
+
+.navigation-container {
+  @apply bg-white shadow-xl top-0 fixed w-full items-center;
+}
+
+.navigation-container .navigation-wrapper {
+  @apply mt-0;
+}
+
+.navigation-container .navBar-brand {
+  width: 150px;
+  align-self: center;
+}
+
+.navBar-brand img {
+  width: 100%;
+}
+
+.hide-nav {
+  transform: translateY(-100px);
+}
+
+@media (max-width: 990px) {
+  .navBar-brand {
+    @apply w-60;
+  }
+}
+
+@media (max-width: 690px) {
+  .navBar-brand {
+    @apply w-40;
+  }
+}

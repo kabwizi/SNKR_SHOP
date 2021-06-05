@@ -1,0 +1,3 @@
+.bag-button {
+  @apply bg-white cursor-pointer flex justify-center items-center w-7 h-7 shadow text-xs;
+}

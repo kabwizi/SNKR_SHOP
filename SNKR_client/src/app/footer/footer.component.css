@@ -1,0 +1,20 @@
+.footer-container {
+  @apply bg-black p-5 text-white mt-28;
+}
+
+.footer-top-section-wrapper {
+  @apply flex gap-10 justify-between items-start pt-5;
+}
+.footer-bottom-section-wrapper {
+  @apply bg-white px-4 text-gray-500 flex justify-between w-full py-2 mt-16 font-semibold  gap-1 md:gap-4 flex-col-reverse md:flex-row;
+}
+
+.footer-brand {
+  @apply text-4xl md:text-7xl font-black -mt-2;
+}
+.footer-section-item {
+  @apply cursor-pointer hover:text-white;
+}
+.footer-social-media-icon {
+  @apply bg-white w-7 h-7 flex justify-center items-center;
+}

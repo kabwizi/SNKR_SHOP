@@ -1,0 +1,194 @@
+<form
+  *ngIf="personalInformationForm"
+  (ngSubmit)="nextFn()"
+  [formGroup]="personalInformationForm"
+  class="felx-1"
+>
+  <p class="font-bold text-lg">DELIVERY ADDRESS</p>
+  <div class="checkout-group-wrapper">
+    <p class="font-semibold text-xs">PERSONAL INFO</p>
+    <div class="flex flex-col md:flex-row w-full gap-4">
+      <div class="flex-1">
+        <label class="text-xs">
+          First name <span class="text-red-500">*</span>
+          <input
+            formControlName="firstName"
+            class="base-input"
+            type="text"
+            placeholder="Enter your name"
+            [class.border-red-500]="
+              personalInformationForm.get('firstName')?.invalid &&
+              personalInformationForm.get('firstName')?.touched
+            "
+          />
+        </label>
+        <p
+          *ngIf="
+            personalInformationForm.get('firstName')?.invalid &&
+            personalInformationForm.get('firstName')?.touched
+          "
+          class="text-red-500 text-xs"
+        >
+          Your first name is required
+        </p>
+      </div>
+      <div class="flex-1">
+        <label class="text-xs">
+          Last name <span class="text-red-500">*</span>
+          <input
+            formControlName="lastName"
+            class="base-input"
+            type="text"
+            placeholder="Lastname"
+            [class.border-red-500]="
+              personalInformationForm.get('lastName')?.invalid &&
+              personalInformationForm.get('lastName')?.touched
+            "
+          />
+        </label>
+        <p
+          *ngIf="
+            personalInformationForm.get('lastName')?.invalid &&
+            personalInformationForm.get('lastName')?.touched
+          "
+          class="text-red-500 text-xs"
+        >
+          Your last name is required
+        </p>
+      </div>
+    </div>
+    <div>
+      <div>
+        <label class="text-xs">
+          Email <span class="text-red-500">*</span>
+          <input
+            formControlName="email"
+            class="base-input"
+            type="text"
+            placeholder="E-mail"
+            [class.border-red-500]="
+              personalInformationForm.get('email')?.invalid &&
+              personalInformationForm.get('email')?.touched
+            "
+          />
+        </label>
+        <p
+          *ngIf="
+            personalInformationForm.get('email')?.invalid &&
+            personalInformationForm.get('email')?.touched
+          "
+          class="text-red-500 text-xs"
+        >
+          Your email is required
+        </p>
+      </div>
+    </div>
+    <label class="text-xs">
+      Phone number<br />
+      <input
+        formControlName="phoneNumber"
+        class="base-input"
+        type="text"
+        placeholder="Phone Number"
+    /></label>
+  </div>
+  <div formGroupName="address" class="checkout-group-wrapper">
+    <p class="font-semibold text-xs">ADDRESS</p>
+    <div>
+      <label class="text-xs">
+        Street <span class="text-red-500">*</span>
+        <input
+          formControlName="street"
+          class="base-input"
+          type="text"
+          placeholder="Street"
+          [class.border-red-500]="
+            personalInformationForm.get('address')?.get('street')?.invalid &&
+            personalInformationForm.get('address')?.get('street')?.touched
+          "
+      /></label>
+      <p
+        *ngIf="
+          personalInformationForm.get('address')?.get('street')?.invalid &&
+          personalInformationForm.get('address')?.get('street')?.touched
+        "
+        class="text-red-500 text-xs"
+      >
+        Your street is required
+      </p>
+    </div>
+    <div>
+      <label class="text-xs">
+        City <span class="text-red-500">*</span>
+
+        <input
+          formControlName="city"
+          class="base-input"
+          type="text"
+          placeholder="City"
+          [class.border-red-500]="
+            personalInformationForm.get('address')?.get('city')?.invalid &&
+            personalInformationForm.get('address')?.get('city')?.touched
+          "
+      /></label>
+      <p
+        *ngIf="
+          personalInformationForm.get('address')?.get('city')?.invalid &&
+          personalInformationForm.get('address')?.get('city')?.touched
+        "
+        class="text-red-500 text-xs"
+      >
+        Your city is required
+      </p>
+    </div>
+    <div>
+      <label class="text-xs">
+        Postal code <span class="text-red-500">*</span>
+        <input
+          formControlName="zip"
+          class="base-input"
+          type="text"
+          placeholder="Prostal Code"
+          [class.border-red-500]="
+            personalInformationForm.get('address')?.get('zip')?.invalid &&
+            personalInformationForm.get('address')?.get('zip')?.touched
+          "
+        />
+      </label>
+      <p
+        *ngIf="
+          personalInformationForm.get('address')?.get('zip')?.invalid &&
+          personalInformationForm.get('address')?.get('zip')?.touched
+        "
+        class="text-red-500 text-xs"
+      >
+        Your postal code is required
+      </p>
+    </div>
+  </div>
+  <div class="flex gap-2 mt-4">
+    <input formControlName="pub" type="checkbox" />
+    <p class="text-xs text-gray-500 md:w-96">
+      Le lorem ipsum est, en imprimerie, une suite de mots sans.
+    </p>
+  </div>
+  <div class="flex gap-2 mt-4">
+    <input formControlName="condition" type="checkbox" />
+    <p class="text-xs text-gray-500 md:w-96">
+      Le lorem ipsum est, en imprimerie, une suite de mots sans signification
+      utilisée à titre provisoire pour calibrer une mise en page, le texte
+      définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise
+      en page est achevée. Généralement, on utilise un texte en faux latin, le
+      Lorem ipsum ou Lipsum.
+    </p>
+  </div>
+  <button
+    [disabled]="!this.personalInformationForm?.valid"
+    type="submit"
+    class="{{
+      !this.personalInformationForm?.valid ? 'bg-gray-400' : 'bg-black'
+    }} mt-4 big-button w-full"
+  >
+    NEXT
+  </button>
+</form>

@@ -1,0 +1,26 @@
+<div class="md:w-80">
+  <div>
+    <p class="font-bold text-lg">ORDER DETAILS</p>
+    <div class="flex flex-col gap-2 mt-4">
+      <app-checkout-product-card
+        *ngFor="let product of bagProduct$ | async"
+        [product]="product"
+      ></app-checkout-product-card>
+    </div>
+  </div>
+  <p class="font-bold text-lg mt-10">ORDER SUMMARY</p>
+  <div class="pt-2 font-semibold text-gray-500 space-y-2">
+    <div class="flex justify-between">
+      <p>Sub-total</p>
+      <p>C$ {{ bagProduct$ | async | productArrayTotalPipe }}</p>
+    </div>
+    <div class="flex justify-between">
+      <p>Taxes</p>
+      <p>C$ {{ bagProduct$ | async | productArrayTotalPipe | taxePipe }}</p>
+    </div>
+    <div class="flex justify-between border-t py-2 text-black font-bold">
+      <p>Total</p>
+      <p>C$ {{ bagProduct$ | async | productArrayTotalPipe | addTaxePipe }}</p>
+    </div>
+  </div>
+</div>

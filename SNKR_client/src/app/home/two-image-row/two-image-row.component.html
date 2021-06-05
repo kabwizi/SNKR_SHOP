@@ -1,0 +1,19 @@
+<section class="flex flex-col md:flex-row gap-4 mt-5">
+  <div class="home-image-row-item">
+    <img src="assets/img/home_img_row_left.png" />
+    <div class="absolute bottom-5 left-5 font-bold">
+      <p class="text-white">ADIDAS</p>
+      <app-home-button
+        [brand]="'adidas'"
+        [typeOfShoes]="'all'"
+      ></app-home-button>
+    </div>
+  </div>
+  <div class="home-image-row-item">
+    <img src="assets/img/home_img_row_right.png" />
+    <div class="absolute bottom-5 left-5 font-bold">
+      <p class="text-white">NIKE</p>
+      <app-home-button [brand]="'nike'" [typeOfShoes]="'all'"></app-home-button>
+    </div>
+  </div>
+</section>
